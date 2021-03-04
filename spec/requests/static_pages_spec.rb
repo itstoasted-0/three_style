@@ -9,7 +9,7 @@ RSpec.describe "静的ページ", type: :request do
     end
   end
   
-  describe "クックログとは？ページ" do
+  describe "Three-Styleとは？ページ" do
     it "正常なレスポンスを返すこと" do
       get about_path
       expect(response).to be_success
