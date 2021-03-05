@@ -1,47 +1,25 @@
-require 'rails_helper'
+require "rails_helper"
 
-RSpec.describe "StaticPages", type: :system do
+RSpec.describe "静的ページ", type: :request do
   describe "トップページ" do
-    context "ページ全体" do
-      before do
-        visit root_path
-      end
-
-      it "Three-Styleの文字列が存在することを確認" do
-        expect(page).to have_content 'Three-Style'
-      end
-
-      it "正しいタイトルが表示されることを確認" do
-        expect(page).to have_title full_title
-      end
+    it "正常なレスポンスを返すこと" do
+      get root_path
+      expect(response).to be_success
+      expect(response).to have_http_status "200"
     end
   end
-
-  describe "ヘルプページ" do
-    before do
-      visit about_path
-    end
-
-    it "Three-Styleとは？の文字列が存在することを確認" do
-      expect(page).to have_content 'Three-Styleとは？'
-    end
-
-    it "正しいタイトルが表示されることを確認" do
-      expect(page).to have_title full_title('Three-Styleとは？')
+  describe "Three-Styleとは？ページ" do
+    it "正常なレスポンスを返すこと" do
+      get about_path
+      expect(response).to be_success
+      expect(response).to have_http_status "200"
     end
   end
-
   describe "利用規約ページ" do
-    before do
-      visit use_of_terms_path
-    end
-
-    it "利用規約の文字列が存在することを確認" do
-      expect(page).to have_content '利用規約'
-    end
-
-    it "正しいタイトルが表示されることを確認" do
-      expect(page).to have_title full_title('利用規約')
+    it "正常なレスポンスを返すこと" do
+      get use_of_terms_path
+      expect(response).to be_success
+      expect(response).to have_http_status "200"
     end
   end
 end
