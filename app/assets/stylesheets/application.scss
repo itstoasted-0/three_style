@@ -1,5 +1,9 @@
-@import "bootstrap-sprockets";
-@import "bootstrap";
+/*
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap/scss/bootstrap";
 
 // ミックスイン
 @mixin box_sizing {
@@ -107,8 +111,10 @@ input {
 }
 
 .field_with_errors {
-  @extend .has-error;
+  input {
+    @extend .is-invalid;
+  }
   .form-control {
-    color: $state-danger-text;
+    color: #a94442;
   }
 }
