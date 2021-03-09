@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   end
 
   def index
+    @user = User.all
   end
 
   def create
@@ -50,7 +51,7 @@ class UsersController < ApplicationController
 
     def current_user
       @user = User.find(params[:id])
-      if current_user?(@user)
+      if !current_user?(@user)
         flash[:danger] = "このページにはアクセスできません"
         redirect_to(root_url)
       end
