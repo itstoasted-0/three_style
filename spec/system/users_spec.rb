@@ -4,7 +4,6 @@ RSpec.describe "Users", type: :system do
   let!(:user) { create(:user) }
 
   describe "ユーザー登録ページ" do
-    （省略）
     context "ユーザー登録処理" do
       it "有効なユーザーでユーザー登録を行うとユーザー登録成功のフラッシュが表示されること" do
         fill_in "ユーザー名", with: "Example User"
