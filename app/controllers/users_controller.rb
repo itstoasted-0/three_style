@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @user = User.all
+    @users = User.paginate(page: params[:page])
   end
 
   def create
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update_attributes(user_params_update)
+    if @user.update(user_params_update)
       flash[:success] = "プロフィールが更新されました！"
       redirect_to @user
     else
@@ -40,16 +40,19 @@ class UsersController < ApplicationController
   end
 
   private
-
+  
+    # ユーザー新規作成時に許可する属性
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
 
+    # プロフィール編集時に許可する属性
     def user_params_update
       params.require(:user).permit(:name, :email, :introduction, :sex)
     end
 
-    def current_user
+    # 正しいユーザーかどうか確認
+    def correct_user
       @user = User.find(params[:id])
       if !current_user?(@user)
         flash[:danger] = "このページにはアクセスできません"

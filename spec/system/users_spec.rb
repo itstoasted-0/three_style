@@ -3,6 +3,18 @@ require 'rails_helper'
 RSpec.describe "Users", type: :system do
   let!(:user) { create(:user) }
 
+  describe "ユーザー一覧ページ" do
+    it "ぺージネーション、削除ボタンが表示されること" do
+      create_list(:user, 31)
+      login_for_system(user)
+      visit users_path
+      expect(page).to have_css "div.pagination"
+      User.paginate(page: 1).each do |u|
+        expect(page).to have_link u.name, href: user_path(u)
+      end
+    end
+  end
+
   describe "ユーザー登録ページ" do
     context "ユーザー登録処理" do
       it "有効なユーザーでユーザー登録を行うとユーザー登録成功のフラッシュが表示されること" do
@@ -11,7 +23,7 @@ RSpec.describe "Users", type: :system do
         fill_in "パスワード", with: "password"
         fill_in "パスワード(確認)", with: "password"
         click_button "登録する"
-        expect(page).to have_content "クックログへようこそ！"
+        expect(page).to have_content "Three-Styleへようこそ！"
       end
    
       it "無効なユーザーでユーザー登録を行うとユーザー登録失敗のフラッシュが表示されること" do
