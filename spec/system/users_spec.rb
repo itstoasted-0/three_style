@@ -60,7 +60,6 @@ RSpec.describe "Users", type: :system do
   end
 
   describe "プロフィール編集ページ" do
-    （省略）
     context "アカウント削除処理", js: true do
       it "正しく削除できること" do
         click_link "アカウントを削除する"
@@ -68,7 +67,6 @@ RSpec.describe "Users", type: :system do
         expect(page).to have_content "自分のアカウントを削除しました"
       end
     end
-  end
 
     context "ページレイアウト" do
       it "正しいタイトルが表示されることを確認" do
