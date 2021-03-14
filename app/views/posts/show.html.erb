@@ -3,5 +3,10 @@
   <div class="row">
     <h2 class="post-genre"><%= @post.genre %></h2>
     <h4><%= @post.content %></h4>
+    <div class="change-post">
+      <% if current_user == @post.user %>
+        <%= link_to "編集", edit_post_path(@post), class: 'edit-post' %>
+      <% end %>
+    </div>
   </div>
 </div>
