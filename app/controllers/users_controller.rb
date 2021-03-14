@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @posts = @user.posts.paginate(page: params[:page], per_page: 5)
   end
 
   def index
@@ -47,7 +48,7 @@ class UsersController < ApplicationController
       flash[:success] = "ユーザーの削除に成功しました"
       redirect_to users_url
     #管理者ユーザーではないが、自分のアカウントの場合
-    elseif current_user?(@user)
+    elsif current_user?(@user)
       @user.destroy
       flash[:success] = "自分のアカウントを削除しました"
       redirect_to root_url

@@ -167,3 +167,119 @@ input {
     border-bottom: 1px solid #eaeaea;
   }
 }
+
+/* 投稿(Post) */
+.posts {
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+  .user {
+    margin-top: 5em;
+    padding-top: 0;
+  }
+  .content {
+    display: block;
+    margin-left: 60px;
+    img {
+      display: block;
+      padding: 5px 0;
+    }
+  }
+  .timestamp {
+    color: #e8e8e8;
+    display: block;
+    margin-left: 60px;
+  }
+  .gravatar {
+    float: left;
+    margin-right: 10px;
+    margin-top: 5px;
+  }
+}
+
+aside {
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
+  }
+}
+
+span.picture {
+  margin-top: 10px;
+  input {
+    border: 0;
+  }
+}
+
+//// トップページ（ログイン後） ////
+// 「新規投稿」ボタン
+.btn-record {
+  margin-top: 3em;
+}
+
+.change-post {
+  display: inline-block;
+}
+
+.edit-post .delete-post {
+  font-size: 15px;
+}
+
+//// 料理個別ページ ////
+.post-user-name {
+  display: inline-block;
+}
+
+h2.post-genre {
+  font-size: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.post-reference {
+  margin-top: 30px;
+}
+
+.post-portion {
+  margin-top: 30px;
+}
+
+.tips {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  h5 {
+    font-size: 17px;
+  }
+}
+
+.title-tips {
+  font-size: 17px;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.show-post-other-info {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.post-other-info {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.post-info {
+  h5 {
+    font-size: 16px;
+    display: inline-block;
+  }
+  h4 {
+    font-size: 20px;
+    display: inline-block;
+  }
+}
