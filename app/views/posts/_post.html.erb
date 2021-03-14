@@ -2,7 +2,7 @@
   <li id="post-<%= post.id %>">
     <%= link_to gravatar_for(post.user, size: 50), post.user %>
     <p>ジャンル: <%= post.genre %></p>
-    <span class="content"><%= post.content %></span><br>
+    <span class="content"><%= link_to post.content, post_path(post) %></span><br>
     <span class="timestamp">
       <%= time_ago_in_words(post.created_at) %>前に投稿
     </span>
