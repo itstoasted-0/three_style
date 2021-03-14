@@ -7,6 +7,9 @@
       <% if current_user == @post.user %>
         <%= link_to "編集", edit_post_path(@post), class: 'edit-post' %>
       <% end %>
+      <% if current_user.admin? || (current_user == @post.user) %>
+        <%= link_to "削除", post_path(@post), method: :delete, class: 'delete-post', data: { confirm: "本当に削除しますか？" } %>
+      <% end %>
     </div>
   </div>
 </div>

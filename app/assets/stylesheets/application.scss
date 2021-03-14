@@ -219,3 +219,67 @@ span.picture {
 .btn-record {
   margin-top: 3em;
 }
+
+.change-post {
+  display: inline-block;
+}
+
+.edit-post .delete-post {
+  font-size: 15px;
+}
+
+//// 料理個別ページ ////
+.post-user-name {
+  display: inline-block;
+}
+
+h2.post-genre {
+  font-size: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.post-reference {
+  margin-top: 30px;
+}
+
+.post-portion {
+  margin-top: 30px;
+}
+
+.tips {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  h5 {
+    font-size: 17px;
+  }
+}
+
+.title-tips {
+  font-size: 17px;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.show-post-other-info {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.post-other-info {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.post-info {
+  h5 {
+    font-size: 16px;
+    display: inline-block;
+  }
+  h4 {
+    font-size: 20px;
+    display: inline-block;
+  }
+}

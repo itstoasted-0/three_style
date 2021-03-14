@@ -13,6 +13,8 @@
           <%= f.text_area :content %>
         </div>
           <%= f.submit "更新する", class: "btn btn-primary" %>
+          <p></p>
+          <%= link_to "投稿を削除する", post_path(@post), method: :delete, data: { confirm: "本当にこの投稿を削除してよろしいですか？" } %>
       <% end %>
     </div>
   </div>
