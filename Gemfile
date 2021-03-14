@@ -19,6 +19,8 @@ gem 'faker'
 gem 'jquery-rails', '4.3.1'
 gem 'will_paginate', '3.1.8'
 gem 'will_paginate-bootstrap4'
+#gem 'rails-i18n', '~> 6.0'
+#gem 'enum_help'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

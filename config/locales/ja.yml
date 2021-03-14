@@ -1,9 +1,11 @@
 ja:
   activerecord:
     errors:
+      messages:
+        record_invalid: "バリデーションに失敗しました: %{errors}"
     models:
       user: ユーザー
-      posts: 投稿
+      post: 投稿
     attributes:
       user:
         id: ID
@@ -16,6 +18,7 @@ ja:
         created_at: 登録日時
         updated_at: 更新日時
       post:
+        id: ID
         genre: スタイル
         content: 内容
   date:
