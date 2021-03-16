@@ -21,6 +21,7 @@ ja:
         id: ID
         genre: スタイル
         content: 内容
+        picture: 写真
   date:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"

@@ -19,8 +19,12 @@ gem 'faker'
 gem 'jquery-rails', '4.3.1'
 gem 'will_paginate', '3.1.8'
 gem 'will_paginate-bootstrap4'
-#gem 'rails-i18n', '~> 6.0'
-#gem 'enum_help'
+# 画像投稿機能
+gem 'carrierwave', '~> 2.0'
+# 画像リサイズ機能
+gem "mini_magick"
+gem 'rails-i18n', '~> 6.0'
+gem 'enum_help'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -33,6 +37,7 @@ group :development do
   gem 'web-console', '>= 4.1.0'
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'listen', '~> 3.3'
+  gem 'fog'
   #gem 'spring'
   #gem 'spring-commands-rspec'
 end
