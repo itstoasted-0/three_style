@@ -15,7 +15,7 @@ User.create!(name:  "くぼた レオ",
 end
 
 10.times do |n|
-  Post.create!(content: Faker::Food.post,
+  Post.create!(content: "アイウエオ",
                genre: 1,
                user_id: 1)
 end
