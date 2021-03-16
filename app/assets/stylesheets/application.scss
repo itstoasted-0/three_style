@@ -214,6 +214,15 @@ span.picture {
   }
 }
 
+.input-need {
+  color: red;
+  font-size: 13px;
+}
+
+.input-unneed {
+  font-size: 13px;
+}
+
 //// トップページ（ログイン後） ////
 // 「新規投稿」ボタン
 .btn-record {
@@ -228,24 +237,16 @@ span.picture {
   font-size: 15px;
 }
 
-//// 料理個別ページ ////
-.post-user-name {
+//// 投稿詳細ページ ////
+.post-user-content {
   display: inline-block;
 }
 
 h2.post-genre {
-  font-size: 30px;
+  font-size: 20px;
   margin-top: 10px;
   margin-bottom: 10px;
   display: inline-block;
-}
-
-.post-reference {
-  margin-top: 30px;
-}
-
-.post-portion {
-  margin-top: 30px;
 }
 
 .tips {
@@ -282,4 +283,10 @@ h2.post-genre {
     font-size: 20px;
     display: inline-block;
   }
+}
+
+.post-picture img {
+  max-width: 100%;
+  height: auto;
+  box-sizing: border-box;
 }

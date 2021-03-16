@@ -55,12 +55,12 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:genre, :content)
+    params.require(:post).permit(:genre, :content, :picture)
   end
 
   def correct_user
       # 現在のユーザーが更新対象の投稿を保有しているかどうか確認
       @post = current_user.posts.find_by(id: params[:id])
       redirect_to root_url if @post.nil?
-    end
+  end
 end
