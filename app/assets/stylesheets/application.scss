@@ -284,3 +284,9 @@ h2.post-genre {
     display: inline-block;
   }
 }
+
+.post-picture img {
+  max-width: 100%;
+  height: auto;
+  box-sizing: border-box;
+}

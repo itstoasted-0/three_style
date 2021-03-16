@@ -12,4 +12,14 @@ class Post < ApplicationRecord
     skate: 2,
     snow: 3
   }
+
+  private
+
+    # アップロードされた画像のサイズを制限する
+    def picture_size
+      if picture.size > 5.megabytes
+        errors.add(:picture, "：5MBより大きい画像はアップロードできません。")
+      end
+    end
+    
 end

@@ -1,7 +1,13 @@
 class PictureUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
+  include CarrierWave::MiniMagick
+  
+  if Rails.env.production?
+    storage :fog
+  else
+    storage :file
+  end
 
   # Choose what kind of storage to use for this uploader:
   storage :file
@@ -14,12 +20,24 @@ class PictureUploader < CarrierWave::Uploader::Base
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
+  # 画像が未設定の時にデフォルトで設定する画像のURL
   # def default_url(*args)
   #   # For Rails 3.1+ asset pipeline compatibility:
   #   # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
   #
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
+
+  # 画像サイズ設定
+  # 詳細表示用：400 * 400の正方形に整形
+  version :thumb400 do
+    process resize_and_pad(400, 400, background = :transparent, gravity = 'Center')
+  end
+
+  # 一覧表示用：200 * 200の正方形に中央から切り抜き
+  version :thumb200 do
+    process resize_to_fill: [200, 200, "Center"]
+  end
 
   # Process files as they are uploaded:
   # process scale: [200, 300]
@@ -35,9 +53,9 @@ class PictureUploader < CarrierWave::Uploader::Base
 
   # Add an allowlist of extensions which are allowed to be uploaded.
   # For images you might use something like this:
-  # def extension_allowlist
-  #   %w(jpg jpeg gif png)
-  # end
+  def extension_whitelist
+     %w(jpg jpeg gif png)
+  end
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.

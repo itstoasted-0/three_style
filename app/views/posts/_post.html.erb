@@ -6,7 +6,7 @@
         <p>(<%= post.genre %>)</p>
         <p class="content"><%= link_to post.content, post_path(post) %></p>
         <span>
-        <%= link_to((image_tag post.picture.url), post_path(post.id), class: 'post-picture') if post.picture.url.present? %>
+        <%= link_to((image_tag post.picture.thumb200.url), post_path(post.id), class: 'post-picture') if post.picture.url.present? %>
         </span>
         <span class="timestamp">
           <%= time_ago_in_words(post.created_at) %>前に投稿
