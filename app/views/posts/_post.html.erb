@@ -3,7 +3,11 @@
     <div class="col-md-10">
       <li id="post-<%= post.id %>">
         <%= link_to gravatar_for(post.user, size: 40), post.user %>
-        <p>(<%= post.genre %>) | <span class="content"><%= link_to post.content, post_path(post) %></span></p>
+        <p>(<%= post.genre %>)</p>
+        <p class="content"><%= link_to post.content, post_path(post) %></p>
+        <span>
+        <%= link_to((image_tag post.picture.url), post_path(post.id), class: 'post-picture') if post.picture.url.present? %>
+        </span>
         <span class="timestamp">
           <%= time_ago_in_words(post.created_at) %>前に投稿
         </span>
