@@ -3,9 +3,7 @@
     <%= link_to(image_tag("header_logo.jpg", :alt => ""), root_url, id: 'logo') %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to 'Three-Styleとは？', about_path %></li>
         <% if logged_in? %>
-          <li><%= link_to 'ユーザー一覧', users_path %></li>
           <li><%= link_to '投稿一覧', posts_path %></li>
           <li><%= link_to '新規投稿', new_post_path %></li>
           <li class="dropdown">
@@ -14,11 +12,12 @@
             </a>
             <ul class="dropdown-menu">
               <li><%= link_to 'プロフィール', current_user %></li>
-              <li class="divider"></li>
+              <li><%= link_to 'ユーザー一覧', users_path %></li>
               <li><%= link_to 'ログアウト', logout_path, method: :delete %></li>
             </ul>
           </li>
         <% else %>
+          <li><%= link_to 'Three-Styleとは？', about_path %></li>
           <li><%= link_to 'ユーザー登録(無料)', signup_path %></li>
           <li><%= link_to 'ログイン', login_path %></li>
         <% end %>

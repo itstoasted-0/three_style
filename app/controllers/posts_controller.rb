@@ -3,7 +3,8 @@ class PostsController < ApplicationController
   before_action :correct_user, only: [:edit, :update]
 
   def index
-    @posts = Post.order(:id)
+    #@posts = Post.order(:id)
+    @posts = Post.paginate(page: params[:page])
   end
 
   def new
