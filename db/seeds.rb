@@ -1,3 +1,4 @@
+#users
 User.create!(name:  "くぼた レオ",
             email: "sample@example.com",
             password:              "foobar",
@@ -14,8 +15,18 @@ User.create!(name:  "くぼた レオ",
               password_confirmation: password)
 end
 
+#posts
 10.times do |n|
-  Post.create!(content: "アイウエオ",
-               genre: 1,
+  content  = Faker::Lorem.sentence
+  Post.create!(content: content,
+               genre: 0,
                user_id: 1)
 end
+
+#relationships
+users = User.all
+user  = users.first
+following = users[2..50]
+followers = users[3..40]
+following.each { |followed| user.follow(followed) }
+followers.each { |follower| follower.follow(user) }
