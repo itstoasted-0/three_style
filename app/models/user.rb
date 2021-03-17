@@ -9,6 +9,9 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
   attr_accessor :remember_token
   has_many :posts, dependent: :destroy
+  has_many :active_relationships, class_name: "Relationship",
+                                  foreign_key: "follower_id",
+                                  dependent: :destroy
 
   class << self
     # 渡された文字列のハッシュ値を返す
