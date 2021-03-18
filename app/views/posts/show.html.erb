@@ -1,23 +1,32 @@
 <% provide(:title, "#{@post.genre}") %>
+<% @comments  = @post.feed_comment(@post.id) %>
 <div class="container">
   <div class="row">
     <div class="col-md-4">
       <h2 class="post-genre"><%= @post.genre %></h2>
       <h2 class="post-content"><%= @post.content %></h2>
+      <%= render 'users/favorite_form' %>
+      <div class="change-post">
+        <% if current_user == @post.user %>
+          <%= link_to "編集", edit_post_path(@post), class: 'edit-post' %>
+        <% end %>
+        <% if current_user.admin? || (current_user == @post.user) %>
+          <%= link_to "削除", post_path(@post), method: :delete, class: 'delete-post', data: { confirm: "本当に削除しますか？" } %>
+        <% end %>
+      </div>
+      
     </div>
     <div class="col-md-8">
       <span class="picture">
         <%= link_to((image_tag @post.picture.thumb400.url), post_path(@post.id), class: 'post-picture') if @post.picture.url.present? %>
       </span>
-      <%= render 'users/favorite_form' %>
+      <div class="comment">
+        <%= render "comments/feed_comments" %>
+        <%= render "comments/new" %>
+      </div>
+      
     </div>
-    <div class="change-post">
-      <% if current_user == @post.user %>
-        <%= link_to "編集", edit_post_path(@post), class: 'edit-post' %>
-      <% end %>
-      <% if current_user.admin? || (current_user == @post.user) %>
-        <%= link_to "削除", post_path(@post), method: :delete, class: 'delete-post', data: { confirm: "本当に削除しますか？" } %>
-      <% end %>
-    </div>
+    
+    
   </div>
 </div>

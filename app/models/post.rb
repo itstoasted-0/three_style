@@ -15,6 +15,11 @@ class Post < ApplicationRecord
     snow: 3
   }
 
+  # 投稿に付属するコメントのフィードを作成
+  def feed_comment(post_id)
+    Comment.where("post_id = ?", post_id)
+  end
+
   private
 
     # アップロードされた画像のサイズを制限する
