@@ -1,5 +1,5 @@
 #users
-User.create!(name:  "くぼた レオ",
+User.create!(name:  "くぼ レオ",
             email: "sample@example.com",
             password:              "foobar",
             password_confirmation: "foobar",
@@ -11,15 +11,15 @@ User.create!(name:  "くぼた レオ",
  password = "password"
  User.create!(name:  name,
               email: email,
-              password:              password,
+              password: password,
               password_confirmation: password)
 end
 
 #posts
 10.times do |n|
   content  = Faker::Lorem.sentence
-  Post.create!(content: content,
-               genre: 0,
+  Post.create!(genre: 0,
+               content: content,
                user_id: 1)
 end
 

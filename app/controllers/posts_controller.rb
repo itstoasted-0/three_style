@@ -63,4 +63,5 @@ class PostsController < ApplicationController
       @post = current_user.posts.find_by(id: params[:id])
       redirect_to root_url if @post.nil?
   end
+
 end
