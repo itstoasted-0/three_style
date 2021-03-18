@@ -9,6 +9,7 @@
       <span class="picture">
         <%= link_to((image_tag @post.picture.thumb400.url), post_path(@post.id), class: 'post-picture') if @post.picture.url.present? %>
       </span>
+      <%= render 'users/favorite_form' %>
     </div>
     <div class="change-post">
       <% if current_user == @post.user %>

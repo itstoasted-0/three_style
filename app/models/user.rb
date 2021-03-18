@@ -17,6 +17,7 @@ class User < ApplicationRecord
                                    foreign_key: "followed_id",
                                    dependent: :destroy
   has_many :followers, through: :passive_relationships, source: :follower
+  has_many :favorites, dependent: :destroy
 
   class << self
     # 渡された文字列のハッシュ値を返す
@@ -75,6 +76,21 @@ class User < ApplicationRecord
   # 現在のユーザーがフォローされていたらtrueを返す
   def followed_by?(other_user)
     followers.include?(other_user)
+  end
+
+  # 投稿をお気に入りに登録する
+  def favorite(post)
+    Favorite.create!(user_id: id, post_id: post.id)
+  end
+
+  # 投稿をお気に入り解除する
+  def unfavorite(post)
+    Favorite.find_by(user_id: id, post_id: post.id).destroy
+  end
+
+  # 現在のユーザーがお気に入り登録してたらtrueを返す
+  def favorite?(post)
+    !Favorite.find_by(user_id: id, post_id: post.id).nil?
   end
 
   private
