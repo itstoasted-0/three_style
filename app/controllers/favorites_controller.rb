@@ -18,6 +18,7 @@ class FavoritesController < ApplicationController
       @user.notifications.create(post_id: @post.id, variety: 1,
                                  from_user_id: current_user.id) # お気に入り登録は通知種別1
       @user.update_attribute(:notification, true)
+    end
   end
 
   def destroy
@@ -30,3 +31,4 @@ class FavoritesController < ApplicationController
   end
 
 end
+
