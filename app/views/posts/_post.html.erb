@@ -1,9 +1,11 @@
 <% @post = post %>
+<% user = @post.user %>
 <div class="container">
   <div class='row'>
     <div class="col-md-10">
       <li id="post-<%= post.id %>">
         <%= link_to gravatar_for(post.user, size: 40), post.user %>
+        <%= link_to user.name, user_path(user) %></p>
         <p>(<%= post.genre %>)</p>
         <p class="content"><%= link_to post.content, post_path(post) %></p>
         <span>
