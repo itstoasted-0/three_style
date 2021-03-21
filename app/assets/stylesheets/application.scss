@@ -14,7 +14,7 @@
 
 // 全ページ共通
 body {
-  padding-top: 60px;
+  padding-top: 130px;
 }
 
 section {
@@ -358,4 +358,8 @@ li.new_notification > a > span {
 
 .notification-message {
   font-size: 16px;
+}
+
+.navbar {
+  width: 100%;
 }
