@@ -25,6 +25,7 @@ gem 'carrierwave', '~> 2.0'
 gem "mini_magick"
 gem 'rails-i18n', '~> 6.0'
 gem 'enum_help'
+gem 'ransack'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

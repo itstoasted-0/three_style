@@ -3,8 +3,11 @@ class PostsController < ApplicationController
   before_action :correct_user, only: [:edit, :update]
 
   def index
-    #@posts = Post.order(:id)
-    @posts = Post.paginate(page: params[:page])
+    # @posts = Post.paginate(page: params[:page])
+    # @ot_posts = Post.others
+    # @su_posts = Post.surf
+    # @sk_posts = Post.skate
+    # @sn_posts = Post.snow
   end
 
   def new

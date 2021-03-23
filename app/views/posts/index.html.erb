@@ -1,12 +1,16 @@
-
 <% provide(:title, '投稿一覧') %>
-<div class="container">
-  <h1>投稿一覧</h1>
-  <%= will_paginate%>
-  <ul class="posts">
-    <%= render @posts %>
-  </ul>
-  <%= will_paginate%>
+<div id="fh5co-portfolio">
+  <div class="container">
+    <%#= link_to "others" , "posts/ot_post" %>
+    <% if @search_word.present? %>
+      <h3>”<%= @search_word %>”の検索結果：<%= @posts.count %>件</h3>
+    <% else %>
+      <h3>投稿一覧 (<%= @posts.count %>)</h3>
+    <% end %>
+    <%= will_paginate%>
+    <ul class="posts">
+      <%= render @posts %>
+    </ul>
+    <%= will_paginate %>
+  </div>
 </div>
-<hr>
-<%= link_to "新規投稿ページへ", new_post_path %>
