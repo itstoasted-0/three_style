@@ -68,6 +68,15 @@ p {
 }
 
 // ヘッダー
+header {
+  height: 65px;
+  width: 100%;
+  background-color: #ffffff;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+}
+
 .navbar ul {
   margin-top: 12px;
   margin-bottom: 12px;
@@ -344,7 +353,7 @@ a.unlike {
 
 ////通知 ////
 // 新しい通知があるときは赤文字にする
-li.new_notification > a > span {
+.new_notification {
   color: red;
 }
 
