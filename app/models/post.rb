@@ -7,6 +7,7 @@ class Post < ApplicationRecord
   validates :genre, presence: true
   validates :content, presence: true, length: { maximum: 140 }
   validates :user_id, presence: true
+  has_many :notifications, dependent: :destroy
 
   enum genre: {
     others: 0,

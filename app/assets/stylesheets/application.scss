@@ -4,6 +4,8 @@
  */
 
 @import "bootstrap/scss/bootstrap";
+//google fonts
+@import url("https://fonts.googleapis.com/css2?family=M+PLUS+1p&display=swap");
 
 // ミックスイン
 @mixin box_sizing {
@@ -15,6 +17,8 @@
 // 全ページ共通
 body {
   padding-top: 130px;
+  //googlefonts
+  font-family: "M PLUS 1p", sans-serif;
 }
 
 section {
