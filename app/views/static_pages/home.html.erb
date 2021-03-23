@@ -1,12 +1,9 @@
  <% if logged_in? %>
   <div class="container">
     <div class="row">
-      <div class="col-md-10">
+      <div class="col-md-12">
         <h3>投稿一覧 (<%= @feed_items.count %>)</h3>
         <%= render 'shared/feed' %>
-      </div>
-      <div class="col-md-2">
-        <p><%= link_to "新規投稿", new_post_path, class: "btn btn-primary btn-lg btn-record" %></p>
       </div>
     </div>
   </div>

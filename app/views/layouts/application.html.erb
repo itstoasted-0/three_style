@@ -7,11 +7,15 @@
     <%= render 'layouts/shim' %>
   </head>
   <body>
-    <div id="page">
-      <%= render 'layouts/header' %>
-      <%= render 'layouts/flash' %>
+    <%= render 'layouts/header' %>
+    <%= render 'layouts/flash' %>
+    <main>
+      <% flash.each do |message_type, message| %>
+        <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+      <% end %>
+      <%= render 'layouts/search' if logged_in? %>
       <%= yield %>
-    </div>
+    </main>
     <%= render 'layouts/footer' %>
   </body>
 </html>

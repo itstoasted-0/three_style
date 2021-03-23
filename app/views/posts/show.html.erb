@@ -14,7 +14,6 @@
           <%= link_to "削除", post_path(@post), method: :delete, class: 'delete-post', data: { confirm: "本当に削除しますか？" } %>
         <% end %>
       </div>
-      
     </div>
     <div class="col-md-8">
       <span class="picture">
@@ -24,9 +23,6 @@
         <%= render "comments/feed_comments" %>
         <%= render "comments/new" %>
       </div>
-      
     </div>
-    
-    
   </div>
 </div>
