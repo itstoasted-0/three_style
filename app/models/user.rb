@@ -20,6 +20,10 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :notifications, dependent: :destroy
 
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
+
+
   class << self
     # 渡された文字列のハッシュ値を返す
     def digest(string)
@@ -92,6 +96,14 @@ class User < ApplicationRecord
   # 現在のユーザーがお気に入り登録してたらtrueを返す
   def favorite?(post)
     !Favorite.find_by(user_id: id, post_id: post.id).nil?
+  end
+
+  def self.guest
+    find_or_create_by!(email: "guest@example.com") do |user|
+      user.password = SecureRandom.urlsafe_base64
+      # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
+      # 例えば name を入力必須としているならば， user.name = "ゲスト" なども必要
+    end
   end
 
   private
