@@ -1,38 +1,86 @@
-<header class="fixed-top">
-  <nav class="navbar navbar-expand-lg navbar-light bg-ligth">
-    <%= link_to(image_tag("header_logo.jpg", :alt => ""), root_url, id: 'logo') %>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+<header>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <%= link_to(image_tag("header_logo_2.jpg", :alt => ""), root_url, id: 'logo') %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="nav navbar ml-auto">
+
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto">
+
         <% if logged_in? %>
           <% if current_user.notification == true %>
-            <li class="new_notification nav-item">
+            <li class="new_notification nav-item active">
           <% else %>
-            <li class="no_notification nav-item ">
+            <li class="no_notification nav-item active">
           <% end %>
-            <i class="fa fa-bell"></i><%= link_to "通知", notifications_path %>
+            <%= link_to notifications_path, class: "nav-link btn btn-outline-success" do %>
+              <i class="fa fa-bell"></i>通知
+            <% end %>
           </li>
-          <li class="nav-item"><i class="fa fa-commenting-o"></i><%= link_to '新規投稿', new_post_path %></li>
-          <li class="nav-item"><i class="fa fa-comments"></i><%= link_to '投稿一覧', posts_path %></li>
-          <li class="nav-item"><i class="fa fa-users"></i><%= link_to 'ユーザー一覧', users_path %></li>
-          <li class="nav-item"><i class="fa fa-heart"></i><%= link_to 'お気に入り', favorites_path%></li>
-          <li class="dropdown nav-item">
-            <i class="fas fa-user-cog"></i>
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              アカウント <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-              <li><i class="fa fa-user"></i><%= link_to 'プロフィール', current_user %></li>
-              <li><i class="fas fa-sign-out-alt"></i><%= link_to 'ログアウト', logout_path, method: :delete %></li>
-            </ul>
+
+          <li class="nav-item active">
+            <%= link_to new_post_path, class: "nav-link btn btn-outline-success" do %>
+              <i class="fab fa-twitter faa-wrench animated"></i>新規投稿
+            <% end %>
           </li>
-          <li class="nav-item"><i class="fa fa-info-circle"></i><%= link_to 'Three-Styleとは？', about_path %></li>
+
+          <li class="nav-item active">
+              <%= link_to posts_path, class: "nav-link btn btn-outline-success" do %>
+              <i class="fa fa-comments"></i>投稿一覧
+              <% end %>
+          </li>
+
+          <li class="nav-item active">
+              <%= link_to users_path, class: "nav-link btn btn-outline-success" do %>
+                <i class="fa fa-users"></i>ユーザー一覧
+              <% end %>
+          </li>
+          
+          <li class="nav-item active">
+              <%= link_to favorites_path, class: "nav-link btn btn-outline-success" do %>
+                <i class="fa fa-heart"></i>お気に入り
+              <% end %>
+          </li>
+
+          <li class="nav-item dropdown active">
+            <a class="nav-link dropdown-toggle btn btn-outline-success" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-cog"></i>アカウント</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+
+                <%= link_to current_user, class: "dropdown-item" do %>
+                  <i class="fa fa-user"></i>プロフィール
+                <% end %>
+
+                <%= link_to logout_path, method: :delete, class: "dropdown-item" do %>
+                  <i class="fas fa-sign-out-alt"></i>ログアウト
+                <% end %>
+
+                <%= link_to about_path, class: "dropdown-item" do %>
+                  <i class="fa fa-info-circle"></i>Three-Styleとは？
+                <% end %>
+            </div>
+          </li>
+          <li class="search_box">
+          <%= render 'layouts/search' %>
+          </li>
           <% else %>
-            <li class="nav-item"><i class="fa fa-info-circle"></i><%= link_to 'Three-Styleとは？', about_path %></li>
-            <li class="nav-item"><i class="fas fa-user-plus"></i><%= link_to 'ユーザー登録(無料)', signup_path %></li>
-            <li class="nav-item"><i class="fas fa-sign-in-alt"></i><%= link_to 'ログイン', login_path %></li>
+            <li class="nav-item active">
+              <%= link_to about_path, class: "nav-link btn btn-outline-success" do %>
+                <i class="fa fa-info-circle"></i>Three-Styleとは？
+              <% end %>
+            </li>
+
+            <li class="nav-item active">
+              <%= link_to signup_path, class: "nav-link btn btn-outline-success" do %>
+                <i class="fas fa-user-plus"></i>ユーザー登録（無料）
+              <% end %>
+            </li>
+
+            <li class="nav-item active">
+              <%= link_to login_path, class: "nav-link btn btn-outline-success" do %>
+                <i class="fas fa-sign-in-alt"></i></i>ログイン
+              <% end %>
+            </li>
         <% end %>
       </ul>
     </div>

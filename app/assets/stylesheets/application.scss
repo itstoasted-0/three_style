@@ -4,6 +4,9 @@
  */
 
 @import "bootstrap/scss/bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "@fortawesome/fontawesome-free/scss/fontawesome";
 //google fonts
 @import url("https://fonts.googleapis.com/css2?family=M+PLUS+1p&display=swap");
 
@@ -16,7 +19,7 @@
 
 // 全ページ共通
 body {
-  padding-top: 130px;
+  padding-top: 170px;
   //googlefonts
   font-family: "M PLUS 1p", sans-serif;
 }
@@ -68,26 +71,34 @@ p {
 }
 
 // ヘッダー
-header {
-  height: 65px;
-  width: 100%;
-  background-color: #ffffff;
-  position: fixed;
-  top: 0;
-  z-index: 10;
+
+// header {
+//   height: 65px;
+//   width: 100%;
+//   background-color: #ffffff;
+//   position: fixed;
+//   top: 0;
+//   z-index: 10;
+// }
+
+// .navbar ul {
+//   margin-top: 12px;
+//   margin-bottom: 12px;
+// }
+
+#logo {
+  margin: -5px 50px 0 30px;
+  img {
+    width: 170px;
+  }
 }
 
-.navbar ul {
-  margin-top: 12px;
-  margin-bottom: 12px;
+.nav-item {
+  margin: 8px;
 }
-#logo {
-  float: left;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  img {
-    width: 150px;
-  }
+
+.search_box {
+  margin: 10px 0 0 20px;
 }
 
 // フッター

@@ -20,6 +20,7 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :notifications, dependent: :destroy
 
+
   class << self
     # 渡された文字列のハッシュ値を返す
     def digest(string)
