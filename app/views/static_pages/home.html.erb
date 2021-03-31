@@ -12,5 +12,9 @@
     <h1>Welcom to Three-Style！</h1>
     <h2>横ノリの仲間を見つけませんか？</h2>
     <p>情報を繋ぐ場所</p>
+
+    <%= link_to guest_login_path, class: "btn btn-outline-success", method: :post do %>
+    <i class="fas fa-angle-double-right"></i>ゲストログイン<i class="fas fa-angle-double-left"></i>
+    <% end %>
   </center>
 <% end %>
