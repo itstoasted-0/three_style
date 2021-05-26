@@ -3,12 +3,12 @@
  *= require_self
  */
 
-@import "bootstrap/scss/bootstrap";
-@import "font-awesome-sprockets";
-@import "font-awesome";
-@import "@fortawesome/fontawesome-free/scss/fontawesome";
+@import 'bootstrap/scss/bootstrap';
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+@import '@fortawesome/fontawesome-free/scss/fontawesome';
 //google fonts
-@import url("https://fonts.googleapis.com/css2?family=M+PLUS+1p&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p&display=swap');
 
 // ミックスイン
 @mixin box_sizing {
@@ -19,9 +19,9 @@
 
 // 全ページ共通
 body {
-  padding-top: 170px;
-  //googlefonts
-  font-family: "M PLUS 1p", sans-serif;
+  background-size: cover;
+  padding-top: 73px;
+  font-family: 'M PLUS 1p', sans-serif;
 }
 
 section {
@@ -39,7 +39,7 @@ textarea {
   }
 }
 
-// テキストの見栄え
+// テキスト
 h1,
 h2,
 h3,
@@ -69,22 +69,6 @@ p {
   font-size: 1.1em;
   line-height: 1.7em;
 }
-
-// ヘッダー
-
-// header {
-//   height: 65px;
-//   width: 100%;
-//   background-color: #ffffff;
-//   position: fixed;
-//   top: 0;
-//   z-index: 10;
-// }
-
-// .navbar ul {
-//   margin-top: 12px;
-//   margin-bottom: 12px;
-// }
 
 #logo {
   margin: -5px 50px 0 30px;
@@ -247,7 +231,22 @@ span.picture {
   font-size: 13px;
 }
 
-//// トップページ（ログイン後） ////
+// トップページ（ログイン前）
+.home_content {
+  // background-image: url('https://source.unsplash.com/CFhI4o5WKrI');
+  .home_content_notlogin {
+    background: #000 url('https://source.unsplash.com/CFhI4o5WKrI') center top/cover no-repeat;
+    padding-bottom: 900px;
+    .home_content_notlogin_title {
+      padding: 300px 0 0;
+    }
+    .home_content_notlogin_guest {
+      text-align: center;
+    }
+  }
+}
+
+// トップページ（ログイン後）
 // 「新規投稿」ボタン
 .btn-record {
   margin-top: 3em;

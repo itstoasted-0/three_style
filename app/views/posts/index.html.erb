@@ -14,3 +14,15 @@
     <%= will_paginate %>
   </div>
 </div>
+<li class="nav-item active">
+  <%= link_to new_post_path, class: "nav-link btn btn-outline-success" do %>
+    <i class="fab fa-twitter faa-wrench animated"></i>その他
+  <% end %>
+</li>
+<%= @ot_posts.content %>
+<%= 'サーフ' %>
+<%= @su_posts.content %>
+<%= 'スケート' %>
+<%= @sk_posts.content %>
+<%= 'スノー' %>
+<%= @sn_posts.content %>

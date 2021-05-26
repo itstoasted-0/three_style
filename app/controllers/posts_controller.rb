@@ -4,10 +4,10 @@ class PostsController < ApplicationController
 
   def index
     # @posts = Post.paginate(page: params[:page])
-    # @ot_posts = Post.others
-    # @su_posts = Post.surf
-    # @sk_posts = Post.skate
-    # @sn_posts = Post.snow
+    @ot_posts = Post.find_by(genre: "0")
+    @su_posts = Post.find_by(genre: "1")
+    @sk_posts = Post.find_by(genre: "2")
+    @sn_posts = Post.find_by(genre: "3")
   end
 
   def new
@@ -25,7 +25,7 @@ class PostsController < ApplicationController
       flash[:success] = "投稿されました！"
       redirect_to post_path(@post)
     else
-      render 'posts/new'
+      render "posts/new"
     end
   end
 
@@ -39,7 +39,7 @@ class PostsController < ApplicationController
       flash[:success] = "更新されました！"
       redirect_to @post
     else
-      render 'edit'
+      render "edit"
     end
   end
 
@@ -55,7 +55,6 @@ class PostsController < ApplicationController
     end
   end
 
-
   private
 
   def post_params
@@ -63,9 +62,8 @@ class PostsController < ApplicationController
   end
 
   def correct_user
-      # 現在のユーザーが更新対象の投稿を保有しているかどうか確認
-      @post = current_user.posts.find_by(id: params[:id])
-      redirect_to root_url if @post.nil?
+    # 現在のユーザーが更新対象の投稿を保有しているかどうか確認
+    @post = current_user.posts.find_by(id: params[:id])
+    redirect_to root_url if @post.nil?
   end
-
 end

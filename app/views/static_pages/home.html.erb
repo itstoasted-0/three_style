@@ -1,20 +1,24 @@
- <% if logged_in? %>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <h3>投稿一覧 (<%= @feed_items.count %>)</h3>
-        <%= render 'shared/feed' %>
+<div class="home_content">
+  <% if logged_in? %>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h3>投稿一覧 (<%= @feed_items.count %>)</h3>
+          <%= render 'shared/feed' %>
+        </div>
       </div>
     </div>
-  </div>
-<% else %>
-  <center>
-    <h1>Welcom to Three-Style！</h1>
-    <h2>横ノリの仲間を見つけませんか？</h2>
-    <p>情報を繋ぐ場所</p>
-
-    <%= link_to guest_login_path, class: "btn btn-outline-success", method: :post do %>
-    <i class="fas fa-angle-double-right"></i>ゲストログイン<i class="fas fa-angle-double-left"></i>
-    <% end %>
-  </center>
-<% end %>
+  <% else %>
+    <div class="home_content_notlogin">
+      <div class="home_content_notlogin_title">
+        <h1>Welcom to Three-Style！</h1>
+        <h2>横ノリの仲間を見つけませんか？</h2>
+      </div>
+      <div class="home_content_notlogin_guest">
+        <%= link_to guest_login_path, class: "btn btn-outline-success", method: :post do %>
+          <i class="fas fa-angle-double-right"></i>ゲストログイン<i class="fas fa-angle-double-left"></i>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
